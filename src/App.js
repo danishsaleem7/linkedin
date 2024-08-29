@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import RSSFeedConfig from './components/RSSFeedConfig';
+import GeneratePosts from './components/GeneratePosts';
+import AdminPanel from './components/AdminPanel';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/login" component={Login} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/rss-config" component={RSSFeedConfig} />
+        <Route path="/generate-posts" component={GeneratePosts} />
+        <Route path="/admin" component={AdminPanel} />
+        <Route path="/" component={Login} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
